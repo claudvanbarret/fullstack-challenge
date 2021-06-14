@@ -1,7 +1,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
-      "professional_types",
+      "professionalTypes",
       [
         {
           description: "Médica",
@@ -29,6 +29,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("professional_types", null, {});
+    await queryInterface.bulkDelete("professionalTypes", null, {});
   }
 };

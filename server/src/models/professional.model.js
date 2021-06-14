@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.professional_type, { foreignKey: "type" });
+      this.belongsTo(models.professionalType, { foreignKey: "type" });
     }
   }
   professional.init(
