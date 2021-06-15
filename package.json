@@ -5,6 +5,9 @@
   "repository": "git@github.com:claudvanbarret/fullstack-challenge.git",
   "author": "claudivanbarretodasilva@gmail.com",
   "license": "MIT",
+  "scripts": {
+    "start:client": "cd client && yarn start"
+  },
   "devDependencies": {
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
