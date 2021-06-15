@@ -8,6 +8,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -18,6 +19,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       type: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: "professionalTypes",
@@ -25,6 +27,7 @@ module.exports = {
         }
       },
       status: {
+        allowNull: false,
         type: Sequelize.BOOLEAN,
         defaultValue: true
       },
