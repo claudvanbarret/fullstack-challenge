@@ -3,7 +3,7 @@ const { Professional, ProfessionalType } = require("../models");
 class ProfessionalController {
   async index(req, res) {
     try {
-      const professionals = await Professional.findAll({ include: [{ model: ProfessionalType }] });
+      const professionals = await Professional.findAll({ include: [{ model: ProfessionalType, as: "type" }] });
 
       return res.json(professionals);
     } catch (error) {
@@ -13,9 +13,9 @@ class ProfessionalController {
 
   async store(req, res) {
     try {
-      const { name, phone, email, status, type } = req.body;
+      const { name, phone, email, status, typeId } = req.body;
 
-      const professional = await Professional.create({ name, phone, email, status, type });
+      const professional = await Professional.create({ name, phone, email, status, typeId });
 
       return res.status(201).json({ data: professional });
     } catch (error) {
@@ -40,7 +40,7 @@ class ProfessionalController {
   async update(req, res) {
     try {
       const { id } = req.params;
-      const { name, phone, email, status, type } = req.body;
+      const { name, phone, email, status, typeId } = req.body;
 
       const professional = await Professional.findByPk(id);
 
@@ -50,7 +50,7 @@ class ProfessionalController {
       professional.phone = phone;
       professional.email = email;
       professional.status = status;
-      professional.type = type;
+      professional.typeId = typeId;
 
       await professional.save();
 

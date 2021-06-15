@@ -18,7 +18,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      type: {
+      typeId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {

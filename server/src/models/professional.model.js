@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.ProfessionalType, { foreignKey: "type" });
+      this.belongsTo(models.ProfessionalType, { foreignKey: "typeId", as: "type" });
     }
   }
   Professional.init(
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       phone: DataTypes.STRING,
       email: DataTypes.STRING,
       status: DataTypes.BOOLEAN,
-      type: DataTypes.INTEGER
+      typeId: DataTypes.INTEGER
     },
     {
       sequelize,
