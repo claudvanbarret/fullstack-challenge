@@ -1,0 +1,417 @@
+openapi: 3.0.0
+info:
+  title: FullStack Challenge
+  description: FullStack Challenge APIs Document
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:3030/api'
+    description: Unsecured local server
+tags:
+  - name: Professional
+  - name: Professional Types
+paths:
+  /professionals:
+    get:
+      summary: Returns a list of professionals
+      security: []
+      tags:
+        - Professional
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Professional'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create a new professional
+      security: []
+      tags:
+        - Professional
+      requestBody:
+        description: Professional to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessionalPost'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Professional'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /professionals/{id}:
+    get:
+      summary: Returns a professional by id
+      security: []
+      tags:
+        - Professional
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 10
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Professional'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessionalNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update a professional by id
+      security: []
+      tags:
+        - Professional
+      requestBody:
+        description: Professional to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessionalPost'
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 10
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Professional'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessionalNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete a professional by id
+      security: []
+      tags:
+        - Professional
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 10
+      responses:
+        '204':
+          description: The professional was deleted successfully.
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessionalNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /professionaltypes:
+    get:
+      summary: Returns a list of professional types
+      security: []
+      tags:
+        - Professional Types
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProfessionalType'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create a new professional type
+      security: []
+      tags:
+        - Professional Types
+      requestBody:
+        description: Professional type to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessionalTypePost'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ProfessionalType'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /professionaltypes/{id}':
+    get:
+      summary: Returns a professional type by id
+      security: []
+      tags:
+        - Professional Types
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 10
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ProfessionalType'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessionalTypeNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update a professional type by id
+      security: []
+      tags:
+        - Professional Types
+      requestBody:
+        description: Professional type to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessionalTypePost'
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 10
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ProfessionalType'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessionalTypeNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete a professional type by id
+      security: []
+      tags:
+        - Professional Types
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 10
+      responses:
+        '204':
+          description: The professional type was deleted successfully.
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessionalTypeNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Professional:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Daniel Kaplan
+        phone:
+          type: string
+          example: (11) 91111-1111
+        email:
+          type: string
+          example: danielkaplan@gmail.com
+        status:
+          type: boolean
+          example: true
+        typeId:
+          type: integer
+          example: 1
+        createdAt:
+         type: string
+         example: 2021-06-15T19:00:19.271Z
+        updatedAt:
+         type: string
+         example: 2021-06-15T19:00:19.271Z
+        type:
+          $ref: '#/components/schemas/ProfessionalType'
+    ProfessionalType:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        description:
+          type: string
+          example: Professor
+        status:
+          type: boolean
+          example: true
+        createdAt:
+         type: string
+         example: 2021-06-15T19:00:19.271Z
+        updatedAt:
+         type: string
+         example: 2021-06-15T19:00:19.271Z
+    ProfessionalPost:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Daniel Kaplan
+        phone:
+          type: string
+          example: (11) 91111-1111
+        email:
+          type: string
+          example: danielkaplan@gmail.com
+        status:
+          type: boolean
+          example: true
+        type:
+          type: integer
+          example: 1
+    ProfessionalTypePost:
+      type: object
+      properties:
+        description:
+          type: string
+          example: Professor
+        status:
+          type: boolean
+          example: true
+    ProfessionalNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: PROFESSIONAL_NOT_FOUND
+    ProfessionalTypeNotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: PROFESSIONAL_TYPE_NOT_FOUND
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error
