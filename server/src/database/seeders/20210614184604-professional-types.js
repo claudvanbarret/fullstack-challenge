@@ -4,7 +4,7 @@ module.exports = {
       "professionalTypes",
       [
         {
-          description: "Médica",
+          description: "Médico",
           status: true
         },
         {
