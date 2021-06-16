@@ -1,5 +1,11 @@
 import * as _ from "lodash";
 
+/**
+ * Transforms an object to a query string.
+ *
+ * @param path - path to url.
+ * @param data - object to be transformed.
+ */
 const buildQuery = (path, data) => {
   if (_.isString(data) || _.isNumber(data)) return `${path}/${data}`;
 
