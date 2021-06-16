@@ -6,7 +6,8 @@
   "author": "claudivanbarretodasilva@gmail.com",
   "license": "MIT",
   "scripts": {
-    "start:client": "cd client && yarn start"
+    "start:client": "cd client && yarn start",
+    "start:server": "cd server && yarn start"
   },
   "devDependencies": {
     "eslint": "^7.28.0",
