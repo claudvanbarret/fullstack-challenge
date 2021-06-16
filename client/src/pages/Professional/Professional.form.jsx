@@ -20,11 +20,11 @@ const ProfessionalForm = ({ form, initialValues, onFinish }) => {
   }, [dispatch]);
 
   const handleFinish = (values) => {
-    const additional = {
+    const professional = {
       id: initialValues.id,
       ...values
     };
-    onFinish(additional);
+    onFinish(professional);
   };
 
   return (
