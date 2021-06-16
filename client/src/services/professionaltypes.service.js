@@ -20,7 +20,8 @@ export const editProfessionalType = (professionalType) => {
   return http({
     method: "put",
     endpoint: endpoints.professionaltypes,
-    params: professionalType
+    params: professionalType,
+    others: professionalType.id
   });
 };
 

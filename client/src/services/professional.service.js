@@ -20,7 +20,8 @@ export const editProfessional = (professional) => {
   return http({
     method: "put",
     endpoint: endpoints.professionals,
-    params: professional
+    params: professional,
+    others: professional.id
   });
 };
 
