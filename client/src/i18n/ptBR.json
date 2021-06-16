@@ -3,6 +3,33 @@
   "general": {
     "title": "FullStack Challenge",
     "professional": "Profissional",
-    "professional_type": "Tipo de Profissional"
+    "professional_type": "Tipo de Profissional",
+    "add": "Adicionar",
+    "edit": "Editar",
+    "update": "Atualizar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "actions": "Ações",
+    "yes": "Sim",
+    "no": "Não",
+    "name": "Nome",
+    "description": "Descrição",
+    "email": "Email",
+    "phone": "Telefone",
+    "status": "Situação"
+  },
+  "validations": {
+    "mandatory": "Campo obrigatório",
+    "email_invalid": "Digite um e-mail válido"
+  },
+  "components": {
+    "drawer": {
+      "add": "Adicionar {{title}}",
+      "edit": "Editar {{title}}"
+    },
+    "crud": {
+      "delete_title": "Tem certeza que deseja excluir esse registro?",
+      "delete_content": "Esta ação é irreversível"
+    }
   }
 }

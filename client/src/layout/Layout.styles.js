@@ -10,7 +10,6 @@ export const Layout = styled(AntLayout)`
 
 export const Main = styled.main`
   height: 100%;
-  padding: 1rem;
 `;
 
 export const Side = styled(Sider)`
