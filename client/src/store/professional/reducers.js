@@ -24,7 +24,8 @@ const fetch = (state, action) => {
 };
 
 const save = (state = INITIAL_STATE, action) => {
-  const content = [...state.content, action.payload];
+  const data = action.payload;
+  const content = [...state.content, data];
 
   return { ...state, content, loading: false };
 };

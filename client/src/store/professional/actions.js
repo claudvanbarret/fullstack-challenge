@@ -46,7 +46,7 @@ export const save = (professional) => {
   return async (dispatch) => {
     dispatch(requestInit());
     try {
-      const data = await saveProfessional(professional);
+      const { data } = await saveProfessional(professional);
       dispatch({ type: SAVE_PROFESSIONAL, payload: data });
     } catch (error) {
       dispatch(requestFailure(error));
@@ -63,7 +63,7 @@ export const edit = (professional) => {
   return async (dispatch) => {
     dispatch(requestInit());
     try {
-      const data = await editProfessional(professional);
+      const { data } = await editProfessional(professional);
       dispatch({ type: EDIT_PROFESSIONAL, payload: data });
     } catch (error) {
       dispatch(requestFailure(error));
