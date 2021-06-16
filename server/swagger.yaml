@@ -22,7 +22,7 @@ paths:
           required: true
           schema:
             type: integer
-            example: 0
+            example: 1
         - in: query
           name: size
           required: true

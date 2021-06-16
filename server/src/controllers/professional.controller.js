@@ -3,9 +3,9 @@ const { Professional, ProfessionalType } = require("../models");
 class ProfessionalController {
   async index(req, res) {
     try {
-      const { page = 0, size = 10 } = req.query;
+      const { page, size } = req.query;
       const limit = +size;
-      const offset = page * limit;
+      const offset = (page - 1) * limit;
 
       const { rows, count } = await Professional.findAndCountAll({
         limit,
