@@ -123,8 +123,8 @@ const Crud = ({
 
 Crud.propTypes = {
   title: PropTypes.string.isRequired,
-  data: PropTypes.object.isRequired,
-  columns: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
+  columns: PropTypes.array.isRequired,
   addable: PropTypes.bool,
   onEdit: PropTypes.func,
   onDelete: PropTypes.func,
