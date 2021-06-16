@@ -16,7 +16,10 @@
     "description": "Descrição",
     "email": "Email",
     "phone": "Telefone",
-    "status": "Situação"
+    "status": "Situação",
+    "type": "Tipo",
+    "active": "Ativo",
+    "inactive": "Inativo"
   },
   "validations": {
     "mandatory": "Campo obrigatório",
