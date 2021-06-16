@@ -1,5 +1,5 @@
 import { Layout as AntLayout } from "antd";
-import Navigation from "../components/Navigation";
+import { Navigation } from "../components/Navigation";
 
 import * as S from "./styles";
 

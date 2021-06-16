@@ -1,8 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 
-import Layout from "../layout";
-import Professional from "../pages/Professional";
-import ProfessionalType from "../pages/ProfessionalType";
+import { Layout } from "../layout";
+import { Professional } from "../pages/Professional";
+import { ProfessionalType } from "../pages/ProfessionalType";
 
 const Router = () => (
   <Switch>
