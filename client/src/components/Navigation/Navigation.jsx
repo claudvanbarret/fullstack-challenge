@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu } from "antd";
 
 import routes from "../../configs/routes";
-import * as S from "./styles";
+import * as S from "./Navigation.styles";
 
 const Navigation = () => {
   const [current, setCurrent] = useState("professionals");

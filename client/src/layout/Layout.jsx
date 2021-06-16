@@ -1,7 +1,7 @@
 import { Layout as AntLayout } from "antd";
 import { Navigation } from "../components/Navigation";
 
-import * as S from "./styles";
+import * as S from "./Layout.styles";
 
 const { Content } = AntLayout;
 
