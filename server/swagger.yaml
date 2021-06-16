@@ -16,6 +16,19 @@ paths:
       security: []
       tags:
         - Professional
+      parameters:
+        - in: query
+          name: page
+          required: true
+          schema:
+            type: integer
+            example: 0
+        - in: query
+          name: size
+          required: true
+          schema:
+            type: integer
+            example: 10
       responses:
         '200':
           description: Success

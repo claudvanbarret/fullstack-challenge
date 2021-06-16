@@ -3,9 +3,18 @@ const { Professional, ProfessionalType } = require("../models");
 class ProfessionalController {
   async index(req, res) {
     try {
-      const professionals = await Professional.findAll({ include: [{ model: ProfessionalType, as: "type" }] });
+      const { page = 0, size = 10 } = req.query;
+      const limit = +size;
+      const offset = page * limit;
 
-      return res.json(professionals);
+      const { rows, count } = await Professional.findAndCountAll({
+        limit,
+        offset,
+        include: [{ model: ProfessionalType, as: "type" }],
+        order: [["name", "ASC"]]
+      });
+
+      return res.json({ data: rows, total: count, page: +page });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
