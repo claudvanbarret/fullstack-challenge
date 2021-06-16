@@ -5,6 +5,7 @@ import * as _ from "lodash";
  *
  * @param path - path to url.
  * @param data - object to be transformed.
+ * @returns a query string formated.
  */
 const buildQuery = (path, data) => {
   if (_.isString(data) || _.isNumber(data)) return `${path}/${data}`;

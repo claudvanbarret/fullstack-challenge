@@ -1,10 +1,11 @@
 import http from "./api.service";
 import endpoints from "../constants/endpoints";
 
-export const fetchProfessionals = () => {
+export const fetchProfessionals = (page, size) => {
   return http({
     method: "get",
-    endpoint: endpoints.professionals
+    endpoint: endpoints.professionals,
+    others: { page, size }
   });
 };
 

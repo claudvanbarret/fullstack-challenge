@@ -11,6 +11,8 @@ import {
 
 const INITIAL_STATE = {
   content: [],
+  total: 0, // Total number of data items
+  page: 1, // Current page number
   loading: false
 };
 
@@ -18,9 +20,9 @@ const init = (state) => ({ ...state, loading: true });
 const finish = (state) => ({ ...state, loading: false });
 
 const fetch = (state, action) => {
-  const data = action.payload;
+  const { data, total, page } = action.payload;
 
-  return { content: data, loading: false };
+  return { content: data, total, page, loading: false };
 };
 
 const save = (state = INITIAL_STATE, action) => {

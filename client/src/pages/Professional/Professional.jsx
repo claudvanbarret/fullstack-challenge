@@ -8,17 +8,23 @@ import ProfessionalForm from "./Professional.form";
 import columns from "./Professional.columns";
 import { fetch, save, edit, remove } from "../../store/professional/actions";
 
+import { PAGINATION_SIZE } from "../../constants/general";
+
 const Professional = () => {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const professionalState = useSelector((state) => state.professional);
   const [professional, setProfessinal] = useState({});
-  const { content, loading } = professionalState;
+  const [pagination, setPagination] = useState({ page: 1, size: PAGINATION_SIZE });
+  const { content, total, page, loading } = professionalState;
 
+  /**
+   * Fetch every time the pagination changes
+   */
   useEffect(() => {
-    dispatch(fetch());
-  }, [dispatch]);
+    dispatch(fetch(pagination));
+  }, [dispatch, pagination]);
 
   /**
    * Finishes the form by calling the service to save
@@ -26,7 +32,6 @@ const Professional = () => {
    * @param {*} values values from the form
    */
   const handleFinish = (values) => {
-    console.log(values);
     if (has(professional, "id")) {
       dispatch(edit(values));
     } else {
@@ -42,6 +47,8 @@ const Professional = () => {
 
   const handleClose = () => setProfessinal({});
 
+  const handlePagination = (pag) => setPagination({ page: pag, size: PAGINATION_SIZE });
+
   return (
     <div className="Professional">
       <Crud
@@ -54,6 +61,12 @@ const Professional = () => {
         onDelete={handleDelete}
         onClose={handleClose}
         FormComponent={<ProfessionalForm form={form} initialValues={professional} onFinish={handleFinish} />}
+        pagination={{
+          total: total,
+          pageSize: PAGINATION_SIZE,
+          current: page,
+          onChange: handlePagination
+        }}
       />
     </div>
   );

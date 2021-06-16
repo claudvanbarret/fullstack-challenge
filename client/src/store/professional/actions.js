@@ -24,12 +24,15 @@ const requestFailure = (error) => ({
 
 /**
  * Fetchs all professionals
+ *
+ * @param page page number
+ * @param size number of items to be returned
  */
-export const fetch = () => {
+export const fetch = ({ page, size }) => {
   return async (dispatch) => {
     dispatch(requestInit());
     try {
-      const data = await fetchProfessionals();
+      const data = await fetchProfessionals(page, size);
       dispatch({ type: FETCH_PROFESSIONAL, payload: data });
     } catch (error) {
       dispatch(requestFailure(error));
