@@ -4,6 +4,7 @@
     "title": "FullStack Challenge",
     "professional": "Profissional",
     "professional_type": "Tipo de Profissional",
+    "logout": "Sair",
     "add": "Adicionar",
     "edit": "Editar",
     "update": "Atualizar",
@@ -19,7 +20,8 @@
     "status": "Situação",
     "type": "Tipo",
     "active": "Ativo",
-    "inactive": "Inativo"
+    "inactive": "Inativo",
+    "login_with_github": "Login com Github"
   },
   "validations": {
     "mandatory": "Campo obrigatório",
