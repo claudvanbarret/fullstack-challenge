@@ -6,7 +6,8 @@ import { buildQuery } from "../helpers/api.helper";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const api = axios.create({
-  baseURL: BASE_URL
+  baseURL: BASE_URL,
+  withCredentials: true
 });
 
 api.interceptors.response.use(
@@ -15,7 +16,11 @@ api.interceptors.response.use(
   },
   async (error) => {
     const { response } = error;
-    message.error(response.data.msg || "Erro inesperado");
+
+    if (response.status !== 401) {
+      message.error(response?.data?.msg || "Erro inesperado");
+    }
+
     return Promise.reject(error);
   }
 );
@@ -26,7 +31,7 @@ const http = async ({ method = "get", endpoint, params, others, headers }) => {
   const { data } = await api({
     url,
     method,
-    data: params instanceof FormData ? params : { ...params },
+    data: params,
     headers
   });
 

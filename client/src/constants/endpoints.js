@@ -1,6 +1,8 @@
 const endpoints = {
   professionals: "professionals",
-  professionaltypes: "professionaltypes"
+  professionaltypes: "professionaltypes",
+  logout: "auth/logout",
+  user: "auth/user"
 };
 
 export default endpoints;
