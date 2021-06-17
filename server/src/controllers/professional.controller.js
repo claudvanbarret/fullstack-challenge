@@ -26,7 +26,11 @@ class ProfessionalController {
 
       const professional = await Professional.create({ name, phone, email, status, typeId });
 
-      return res.status(201).json({ data: professional });
+      const response = await Professional.findByPk(professional.id, {
+        include: [{ model: ProfessionalType, as: "type" }]
+      });
+
+      return res.status(201).json({ data: response });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
@@ -36,7 +40,7 @@ class ProfessionalController {
     try {
       const { id } = req.params;
 
-      const professional = await Professional.findByPk(id);
+      const professional = await Professional.findByPk(id, { include: [{ model: ProfessionalType, as: "type" }] });
 
       if (!professional) return res.status(404).json({ message: "PROFESSIONAL_NOT_FOUND" });
 
@@ -63,7 +67,9 @@ class ProfessionalController {
 
       await professional.save();
 
-      return res.status(200).json({ data: professional });
+      const response = await Professional.findByPk(id, { include: [{ model: ProfessionalType, as: "type" }] });
+
+      return res.status(200).json({ data: response });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
