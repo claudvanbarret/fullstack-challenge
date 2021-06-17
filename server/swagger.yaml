@@ -185,6 +185,12 @@ paths:
       security: []
       tags:
         - Professional Types
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: boolean
+            example: true
       responses:
         '200':
           description: Success

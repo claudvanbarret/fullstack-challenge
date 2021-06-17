@@ -24,12 +24,13 @@ const requestFailure = (error) => ({
 
 /**
  * Fetchs all professional types
+ * @param status - whether it is active or deactivated
  */
-export const fetch = () => {
+export const fetch = (status) => {
   return async (dispatch) => {
     dispatch(requestInit());
     try {
-      const data = await fetchProfessionalTypes();
+      const data = await fetchProfessionalTypes(status);
       dispatch({ type: FETCH_PROFESSIONAL_TYPE, payload: data });
     } catch (error) {
       dispatch(requestFailure(error));

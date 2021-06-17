@@ -3,7 +3,13 @@ const { ProfessionalType } = require("../models");
 class ProfessionalTypeController {
   async index(req, res) {
     try {
-      const professionals = await ProfessionalType.findAll();
+      const { status } = req.query;
+
+      let query = {};
+
+      if (status !== undefined) query = { status };
+
+      const professionals = await ProfessionalType.findAll({ where: query });
 
       return res.json(professionals);
     } catch (error) {

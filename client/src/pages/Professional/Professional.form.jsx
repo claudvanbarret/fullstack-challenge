@@ -16,7 +16,7 @@ const ProfessionalForm = ({ form, initialValues, onFinish }) => {
 
   // Load the professional types
   useEffect(() => {
-    dispatch(fetch());
+    dispatch(fetch(true));
   }, [dispatch]);
 
   const handleFinish = (values) => {
