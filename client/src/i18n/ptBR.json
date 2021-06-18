@@ -27,6 +27,10 @@
     "mandatory": "Campo obrigatório",
     "email_invalid": "Digite um e-mail válido"
   },
+  "errors": {
+    "error_unexpected": "Erro inesperado",
+    "unauthorized": "Não autorizado"
+  },
   "components": {
     "drawer": {
       "add": "Adicionar {{title}}",

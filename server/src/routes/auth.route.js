@@ -30,7 +30,7 @@ router.get("/logout", (req, res) => {
 /**
  * @desc Get user logged
  */
-router.get("/user", auth, (req, res) => {
+router.get("/user", (req, res) => {
   res.status(200).json({ data: req.user });
 });
 
