@@ -44,4 +44,4 @@ Starts the frontend
 
 ### Docs
 
-You can see the API documentation in [http://locahost:3030/docs](http://locahost:3030/docs)
+You can see the API documentation in [http://localhost:3030/docs](http://localhost:3030/docs)
