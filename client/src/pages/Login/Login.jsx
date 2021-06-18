@@ -9,7 +9,7 @@ const Login = () => {
   const { t } = useTranslation();
 
   const loginToGithub = () => {
-    window.location.replace("http://localhost:3030/api/auth/github");
+    window.location.replace(process.env.REACT_APP_AUTH_URL);
   };
 
   return (
