@@ -2,10 +2,12 @@ import http from "./api.service";
 import endpoints from "../constants/endpoints";
 
 export const fetchProfessionalTypes = (status) => {
+  const others = status !== undefined ? { status } : {};
+
   return http({
     method: "get",
     endpoint: endpoints.professionaltypes,
-    others: { status }
+    others: others
   });
 };
 
