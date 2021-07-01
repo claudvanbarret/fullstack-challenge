@@ -5,16 +5,18 @@
   "repository": "git@github.com:claudvanbarret/fullstack-challenge.git",
   "author": "claudivanbarretodasilva@gmail.com",
   "license": "MIT",
+  "private": "true",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
-    "start:db": "cd server && docker-compose up -d && yarn db:migrate && yarn db:populate",
-    "start:client": "cd client && yarn start",
-    "start:server": "cd server && yarn start"
+    "start:db": "cd packages/server && docker-compose up -d && yarn db:migrate && yarn db:populate",
+    "start:client": "cd packages/client && yarn start",
+    "start:server": "cd packages/server && yarn start"
   },
   "devDependencies": {
-    "eslint": "^7.28.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.1"
+    "@fullstack-challenge/eslint-config": "*"
   }
 }

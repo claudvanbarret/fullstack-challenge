@@ -1,0 +1,31 @@
+{
+  "name": "@fullstack-challenge/server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "claudivanbarretodasilva@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js",
+    "db:migrate": "../../node_modules/.bin/sequelize db:migrate",
+    "db:migrate:undo": "../../node_modules/.bin/sequelize db:migrate:undo:all",
+    "db:populate": "../../node_modules/.bin/sequelize db:seed:all",
+    "db:reset": "npm run db:migrate:undo && npm run db:migrate && npm run db:populate"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
+    "passport": "^0.4.1",
+    "passport-github": "^1.1.0",
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.2",
+    "swagger-ui-express": "^4.1.6",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0"
+  }
+}
