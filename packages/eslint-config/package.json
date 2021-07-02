@@ -1,7 +1,7 @@
 {
   "name": "@fullstack-challenge/eslint-config",
   "version": "1.0.0",
-  "main": "eslintrc.js",
+  "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.28.0",
