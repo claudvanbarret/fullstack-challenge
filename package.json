@@ -6,15 +6,19 @@
   "author": "claudivanbarretodasilva@gmail.com",
   "license": "MIT",
   "private": "true",
+  "scripts": {
+    "start:init": "yarn start:db && yarn db:migrate && yarn db:populate",
+    "start:db": "yarn workspace @fullstack-challenge/server db:start",
+    "start:client": "yarn workspace @fullstack-challenge/client start",
+    "start:server": "yarn workspace @fullstack-challenge/server start",
+    "db:migrate": "yarn workspace @fullstack-challenge/server db:migrate",
+    "db:populate": "yarn workspace @fullstack-challenge/server db:populate",
+    "db:stop": "yarn workspace @fullstack-challenge/server db:stop"
+  },
   "workspaces": {
     "packages": [
       "packages/*"
     ]
-  },
-  "scripts": {
-    "start:db": "cd packages/server && docker-compose up -d && yarn db:migrate && yarn db:populate",
-    "start:client": "cd packages/client && yarn start",
-    "start:server": "cd packages/server && yarn start"
   },
   "devDependencies": {
     "@fullstack-challenge/eslint-config": "*"
